@@ -7,6 +7,8 @@ import * as path from "path";
 // import { DbContext } from "@data-layer/DbContext";
 import { BaseController } from "./controllers/";
 
+import { Hijack } from "express-multi-hijack";
+
 const health = require("express-ping");
 
 export class ExpressConfig {
@@ -23,12 +25,11 @@ export class ExpressConfig {
     this.app.use(health.ping());
     this.app.use(helmet());
     this.setUpControllers();
-    this.app.use(this.router);
+    this.app.use("/api/v1", this.router);
     this.app.use(this.unmatchedRoutesHandlder);
   }
 
   setUpControllers() {
-    const controllersPath = path.resolve("src", "web/controllers");
     attachControllers(this.router, [BaseController]);
   }
 
