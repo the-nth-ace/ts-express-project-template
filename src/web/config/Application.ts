@@ -9,11 +9,12 @@ export class Application {
     const port = process.env.PORT;
 
     this.server = this.express.app.listen(port, () => {
-      console.clear();
+      // console.clear();
       console.log(`
       -----------------------------------------------------
        Server Started! Express: http://localhost:${port}
        Health : http://localhost:${port}/ping
+       Docs: http://localhost:${port}/api/v1/docs/
       -----------------------------------------------------
       `);
     });
