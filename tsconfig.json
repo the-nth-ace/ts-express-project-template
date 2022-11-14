@@ -3,19 +3,23 @@
     "target": "es2016",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
     "module": "commonjs",
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
       "@business-logic/*": ["src/business-logic/*"],
-      "@data-layer/*": ["src/data-layer/*"],
+      "@domain/*": ["./src/domain/*"],
       "@web/*": ["src/web/*"]
     },
-    "outDir": "./dist/",
+    "outDir": "dist",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
 
     "strict": true,
     "strictPropertyInitialization": false,
     "skipLibCheck": true
-  }
+  },
+  "include": ["src/**/*"]
 }
+
